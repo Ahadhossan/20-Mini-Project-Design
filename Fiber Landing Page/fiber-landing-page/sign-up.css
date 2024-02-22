@@ -1,0 +1,136 @@
+section {
+  padding: 2rem 1rem;
+}
+
+.back {
+  display: inline-block;
+  margin-bottom: 2rem;
+}
+
+h2 {
+  margin-bottom: 1.5rem;
+}
+
+h1 {
+  font-size: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+form {
+  display: grid;
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
+}
+
+form article {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+form article.checkbox {
+  display: flex;
+  align-items: flex-start;
+}
+
+form article.checkbox a,
+form p a {
+  color: #4d13d1;
+  font-weight: bold;
+}
+
+form article label {
+  font-weight: bold;
+  font-size: 17px;
+  margin-bottom: 10px;
+}
+
+form article input {
+  font-size: 1rem;
+  padding: 1rem 2rem;
+  border: 2px solid #ececec;
+  border-radius: 10px;
+  letter-spacing: 1px;
+}
+
+form button {
+  background-color: #4d13d1;
+  color: #fff;
+  font-weight: bold;
+  font-size: 16px;
+  padding: 0.625rem 1.5rem;
+  border-radius: 0.2rem;
+}
+
+form p {
+  text-align: center;
+}
+
+section div:nth-child(2) {
+  display: none;
+}
+
+@media (min-width: 1024px) {
+  section {
+    padding: 0;
+  }
+
+  section {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    height: 100vh;
+    align-items: center;
+  }
+
+  section div:first-child {
+    padding: 0 2rem;
+  }
+
+  section div:nth-child(2) {
+    display: grid;
+    background-color: #4d13d1;
+    padding: 5rem 2rem;
+    height: 100vh;
+  }
+
+  section div:nth-child(2) img {
+    display: block;
+    margin: auto;
+    width: 70%;
+  }
+
+  section div:nth-child(2) article {
+    text-align: center;
+    margin-top: 2rem;
+  }
+
+  section div:nth-child(2) article h2 {
+    color: #fff;
+  }
+
+  section div:nth-child(2) article p {
+    color: #fff;
+    width: 500px;
+    margin: auto;
+  }
+
+  section div:nth-child(2) article ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 1rem;
+    margin-top: 2rem;
+  }
+
+  section div:nth-child(2) article ul li {
+    width: 12px;
+    height: 12px;
+    background-color: #ffffff75;
+    border-radius: 50%;
+    cursor: pointer;
+  }
+
+  section div:nth-child(2) article ul li.active {
+    background-color: #fff;
+  }
+}

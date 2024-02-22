@@ -1,0 +1,119 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap");
+
+:root {
+  --primary: #94b3fd;
+  --secondary: #c70a80;
+  --secondary-light: #d800a6;
+  --light: white;
+  --grey: rgb(214, 214, 214);
+  --black: #222222;
+  --shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  list-style-type: none;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  background-color: var(--primary);
+}
+
+.wrapper {
+  width: 500px;
+  margin: 100px auto;
+}
+
+.search {
+  display: flex;
+  box-shadow: var(--shadow);
+}
+
+.search input {
+  width: 100%;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  border-radius: 5px;
+  outline: none;
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+  border: 2px solid var(--light);
+}
+
+.search input::placeholder {
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.search button {
+  display: flex;
+  align-items: center;
+  border-radius: 5px;
+  padding: 12px;
+  font-size: 14px;
+  font-weight: 600;
+  color: var(--light);
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
+
+  border: 2px solid transparent;
+  background-color: var(--secondary);
+
+  cursor: pointer;
+  transition: background-color 0.2s;
+}
+
+.search button i {
+  margin-right: 5px;
+}
+
+.search button:hover {
+  background-color: var(--secondary-light);
+}
+
+.result {
+  margin-top: 8px;
+  border-radius: 5px;
+  background-color: var(--light);
+  max-height: 0;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.result.show {
+  max-height: fit-content;
+}
+
+.result li {
+  display: flex;
+  align-items: center;
+  padding: 12px;
+  cursor: pointer;
+  transition: background-color 0.2s, color 0.2s;
+}
+
+.result li i {
+  font-size: 14px;
+  margin-right: 10px;
+}
+
+.result li a {
+  font-size: 14px;
+  text-decoration: none;
+  color: var(--black);
+  font-weight: 500;
+  transition: color 0.2s;
+}
+
+.result li:hover {
+  color: var(--light);
+  background-color: var(--secondary);
+}
+
+.result li:hover a {
+  color: var(--light);
+}

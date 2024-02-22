@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Fog Overlay Button Hover Effect</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <svg width="0" height="0">
+      <filter id="cloudFilter">
+        <feTurbulence type="fractalNoise" baseFrequency=".1" numOctaves="6" />
+        <feDisplacementMap in="SourceGraphic" scale="100" />
+      </filter>
+    </svg>
+    <div class="button_wrapper">
+      <div class="button btn1">
+        <span>Hover Me</span>
+        <div class="back"></div>
+      </div>
+      <div class="button btn2">
+        <span>Hover Me</span>
+        <div class="back"></div>
+      </div>
+      <div class="button btn3">
+        <span>Hover Me</span>
+        <div class="back"></div>
+      </div>
+      <div class="button btn4">
+        <span>Hover Me</span>
+        <div class="back"></div>
+      </div>
+    </div>
+  </body>
+</html>

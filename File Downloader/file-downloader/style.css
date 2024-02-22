@@ -1,0 +1,96 @@
+@import url("https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500&display=swap");
+:root {
+  --primary: #19376d;
+  --secondary: #0ea293;
+  --white: #ffffff;
+  --black: #222222;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Montserrat", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--primary);
+}
+
+.container {
+  width: 450px;
+  padding: 1rem;
+  border-radius: 5px;
+  background-color: var(--white);
+}
+
+.container h1 {
+  display: flex;
+  align-items: center;
+  font-size: 1.8rem;
+  margin-bottom: 20px;
+  color: var(--secondary);
+}
+
+.container h1 i {
+  font-size: 2rem;
+  margin-right: 0.5rem;
+}
+
+.container p {
+  margin-bottom: 20px;
+  color: var(--black);
+}
+
+.container input {
+  display: block;
+  width: 100%;
+  padding: 1rem;
+  margin-bottom: 20px;
+  border-radius: 5px;
+  font-size: 1rem;
+  color: var(--secondary);
+  outline: none;
+  font-weight: 500;
+  border: 1px solid var(--secondary);
+  transition: box-shadow 0.2s;
+}
+
+.container input:focus,
+.container input:active {
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
+  border: 1px solid var(--secondary);
+}
+
+.container input::placeholder {
+  font-size: 1rem;
+  font-weight: 500;
+  color: var(--secondary);
+}
+
+.container .button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 10px;
+  width: 100%;
+  padding: 1rem;
+  font-size: 1rem;
+  font-weight: 500;
+  border-radius: 5px;
+  letter-spacing: 0.1rem;
+  border: 1px solid var(--secondary);
+  background-color: var(--secondary);
+  color: var(--white);
+  cursor: pointer;
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.container input:valid ~ .button {
+  opacity: 1;
+  pointer-events: auto;
+}

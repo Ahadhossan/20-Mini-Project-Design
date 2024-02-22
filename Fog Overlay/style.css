@@ -1,0 +1,95 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: sans-serif;
+}
+body {
+  height: 100vh;
+  background-color: #192735;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.button_wrapper {
+  width: 400px;
+  height: 500px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 20px;
+}
+.button {
+  position: relative;
+  width: 180px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  overflow: hidden;
+  margin: 0px 1rem;
+  box-shadow: 0 2px 2px #000, 0 5px 5px #000;
+  transition: all 0.4s cubic-bezier(0, 0.22, 0.3, 1);
+}
+.button::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.2);
+}
+.button span {
+  color: #fff;
+  font-size: 1rem;
+  font-weight: 500;
+  z-index: 9;
+  text-transform: uppercase;
+  letter-spacing: 0.2rem;
+  transition: color 2.3s;
+}
+.btn1 {
+  background-color: #43ea87;
+}
+.btn2 {
+  background-color: purple;
+}
+.btn3 {
+  background-color: teal;
+}
+.btn4 {
+  background-color: deeppink;
+}
+.button .back {
+  position: absolute;
+  width: 0;
+  height: 0;
+  filter: url(#cloudFilter);
+  border-radius: 50%;
+  z-index: 5;
+  background-color: #fff;
+  transition: all 2s cubic-bezier(0.1, 0.22, 0.3, 1);
+}
+.btn1 .back {
+  top: -50%;
+  left: -50%;
+}
+.btn2 .back {
+  top: -50%;
+  right: -50%;
+}
+.btn3 .back {
+  bottom: -50%;
+  left: -50%;
+}
+.btn4 .back {
+  bottom: -50%;
+  right: -50%;
+}
+.button:hover .back {
+  width: calc(2 * 180px);
+  height: calc(2 * 60px);
+}
+.button:hover span {
+  color: #495057;
+}
