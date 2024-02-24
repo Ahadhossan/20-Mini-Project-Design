@@ -1,0 +1,162 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Gill Sans',sans-serif;
+}
+
+section{
+    position: relative;
+    background-color: #eee;
+    min-height: 100vh;
+    justify-content: center;
+    align-items: center;
+    display: flex;
+    transition: background 0.5s;
+}
+
+section.dark{
+    background: #242424;
+}
+
+section .card{
+    position: relative;
+    width: 300px;
+    height: 380px;
+    background: #fff;
+    box-shadow: 0 15px 25px rgba(0,0,0,0.25);
+    border-radius: 16px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: background 0.5s;
+}
+
+section.dark .card{
+     background: #323232;   
+}
+
+section .card .content,
+section .card .text{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+section .card .text .imgbox{
+    position: relative;
+    width: 120px;
+    height: 120px;
+    overflow: hidden;
+    border-radius: 50%;
+    margin-bottom: 15px;
+}
+
+section .card .text .imgbox img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+section .card .text h3{
+    font-weight: 800;
+    font-size: 1.4em;
+    line-height: 1.2em;
+    text-align: center;
+    color: #17cc77;
+}
+
+section .card .text h3 span{
+    font-weight: 500;
+    color: #777;
+    font-size: 0.75;
+}
+
+section .card .social{
+    display: flex;
+}
+
+section.dark .card .text h3 span{
+    color: #ccc;
+}
+section .card .social li{
+    list-style: none;
+}
+
+section .card .social li a{
+    position: relative;
+    width: 50px;
+    height: 50px;
+    color: #17c777;
+    background-color: #e9f5e9;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    font-size: 20px;
+    border-radius: 50%;
+    margin-top: 25px;
+}
+
+
+section.dark .card .social li a{
+    background-color: #404852;
+}
+
+section .card .social li a:hover{
+    color: #fff;
+}
+
+.social li a .fa{
+    position: relative;
+    z-index: 1000;
+}
+
+section .card .social li a::before{
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: #17cc77;
+    color: #e9f5e9;
+    border-radius: 50%;
+    transform: scale(0);
+    transition: 0.3s;
+}
+
+section .card .social li a:hover:before{
+    transform: scale(1);
+}
+
+.toggle{
+    background-color: #e9f5e9;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    top: 20px;
+    right: 20px;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    position: absolute;
+}
+
+section.dark .toggle{
+    background-color: #404852;
+}
+
+.toggle::before{
+    content: '\f186';
+    font-family: fontAwesome;
+    color: #17cc77;
+}
+
+section.dark .toggle::before{
+    content: '\f185';
+}
