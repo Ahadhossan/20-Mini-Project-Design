@@ -1,0 +1,192 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600;700&display=swap");
+:root {
+  --primary: #4b56d2;
+  --primary-light: rgba(75, 86, 210, 0.8);
+  --white: #ffffff;
+  --black: #222222;
+  --grey: #aaaaaa;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background-color: var(--primary);
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  width: 380px;
+  padding: 1.5rem 0;
+  border-radius: 10px;
+  background-color: var(--white);
+}
+
+.container .header {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 1.5rem;
+}
+
+.container .progress-bar {
+  display: flex;
+  align-items: center;
+  width: 100%;
+  justify-content: space-between;
+  margin-bottom: 1.5rem;
+}
+
+.progress-bar .step {
+  position: relative;
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+}
+
+.progress-bar .step::after {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  content: "";
+  width: 152px;
+  height: 3px;
+  left: 0;
+  z-index: 0;
+  background-color: var(--grey);
+  transition: background-color 0.1s;
+}
+
+.progress-bar .step:last-of-type:after {
+  display: none;
+}
+
+#step-1.active::after,
+#step-2.active::after {
+  background-color: var(--primary);
+}
+
+.progress-bar .step span {
+  position: relative;
+  border: 3px solid var(--grey);
+  width: 2rem;
+  height: 2rem;
+  line-height: 1.8rem;
+  font-size: 1.2rem;
+  font-weight: 500;
+  color: var(--grey);
+  margin-left: 1px;
+  cursor: pointer;
+  text-align: center;
+  background-color: var(--white);
+  border-radius: 50%;
+  z-index: 1;
+  transition: background-color 0.1s;
+}
+
+.step span.active {
+  color: var(--primary);
+  border: 3px solid var(--primary);
+}
+
+.progress-bar .step i {
+  display: none;
+  font-size: 2rem;
+  margin-left: 1px;
+  cursor: pointer;
+  background-color: var(--white);
+  z-index: 2;
+}
+
+#step-1 i.active,
+#step-2 i.active,
+#step-3 i.active {
+  display: block;
+  color: var(--primary);
+}
+
+.container section {
+  max-width: 300px;
+  overflow: hidden;
+}
+
+.container .box {
+  display: flex;
+  width: 1020px;
+  transition: margin-left 0.5s;
+}
+
+.box .form {
+  width: 300px;
+  margin-right: 40px;
+}
+
+.form .form-field {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  margin-bottom: 1rem;
+}
+
+.form-field label {
+  font-size: 1rem;
+  font-weight: 500;
+  margin-bottom: 2px;
+}
+
+.form-field input,
+.form-field select {
+  padding: 10px;
+  border-radius: 5px;
+  outline: none;
+  background-color: var(--white);
+  border: 2px solid var(--grey);
+}
+
+.form-field .error {
+  position: absolute;
+  top: 69px;
+  font-size: 14px;
+  color: red;
+}
+
+.form-field input:focus,
+.form-field select:focus {
+  border: 2px solid var(--primary);
+}
+
+.btn-group {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 1.5rem 0 1rem 0;
+}
+
+.btn-group button {
+  padding: 10px;
+  width: 150px;
+  border-radius: 50px;
+  font-size: 1rem;
+  letter-spacing: 0.1rem;
+  color: var(--white);
+  background-color: var(--primary);
+  border: none;
+  cursor: pointer;
+  margin: 0 5px;
+  transition: box-shadow 0.2s;
+}
+
+.btn-group button:hover {
+  box-shadow: 0px 3px 8px var(--primary-light);
+}
