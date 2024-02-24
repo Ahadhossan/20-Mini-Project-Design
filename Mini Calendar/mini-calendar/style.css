@@ -1,0 +1,66 @@
+@import url("https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500;600&display=swap");
+
+:root {
+  --primary: #2a325b;
+  --secondary: #f4a92f;
+  --light: #ffffff;
+  --dark: #222222;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Poppins", sans-serif;
+  transition: all 0.5s ease;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 100vh;
+  background: linear-gradient(45deg, var(--primary) 37%, var(--secondary) 190%);
+}
+
+.mini-calendar {
+  
+  display: flex;
+  width: 350px;
+  height: 200px;
+  border-radius: 25px;
+  background-color: var(--light);
+  overflow: hidden;
+}
+
+.mini-calendar .left {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 75px;
+  background-color: var(--secondary);
+}
+
+.mini-calendar .left span {
+  display: block;
+  font-size: 3.5rem;
+  font-weight: 500;
+  color: var(--primary);
+  transform: rotate(-90deg);
+}
+
+.mini-calendar .right {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  width: 100%;
+  font-size: 1.5rem;
+  font-weight: 500;
+  color: var(--secondary);
+  padding-left: 14px;
+  background-color: var(--primary);
+}
+
+.mini-calendar .right #month {
+  font-size: 3rem;
+}
