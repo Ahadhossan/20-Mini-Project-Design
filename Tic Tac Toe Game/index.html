@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tic Tac Toe Game</title>
+
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background: #333;
+            color: #fff;
+        }
+
+        #board {
+            display: grid;
+            grid-template-columns: repeat(3, 100px);
+            grid-gap: 5px;
+        }
+
+        .cell {
+            width: 100px;
+            height: 100px;
+            font-size: 3rem;
+            text-align: center;
+            background: #444;
+            cursor: pointer;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            border: 2px solid #555;
+            transition: all .3s;
+        }
+
+        .cell:hover {
+            background: #555;
+        }
+
+        .cell.X {
+            color: #ff6b6b;
+        }
+
+        .cell.O {
+            color: #61dafb;
+        }
+
+        .popup {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(0, 0, 0, .7);
+            z-index: 1;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .popup-content {
+            background: #fff;
+            border-radius: 10px;
+            padding: 20px;
+            text-align: center;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, .2);
+        }
+
+        .popup h2 {
+            color: #333;
+            font-size: 2rem;
+            margin: 0 0 20px;
+        }
+
+        .popup button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 10px;
+            cursor: pointer;
+            background: #333;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            transition: background-color .3s;
+        }
+
+        .popup button:hover {
+            background-color: #555;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div id="board"></div>
+    <div class="popup" id="popup">
+        <div class="popup-content">
+            <h2 id="popup-message"></h2>
+            <button id="play-again">Play Again</button>
+        </div>
+    </div>
+
+    <!-- script js -->
+    <script>
+        const board = document.getElementById('board');
+        const popup = document.getElementById('popup');
+        const popupMessage = document.getElementById('popup-message');
+        const playAgainButton = document.getElementById('play-again');
+
+        let currentPlayer = 'X'
+        const cells = new Array(9).fill(null)
+
+        function checkWinner() {
+            const winningCombination = [
+                [0, 1, 2],
+                [3, 4, 5],
+                [6, 7, 8],
+                [0, 3, 6],
+                [1, 4, 7],
+                [2, 5, 8],
+                [0, 4, 8],
+                [2, 4, 6]
+            ]
+
+            for (const combo of winningCombination) {
+                const [a, b, c] = combo
+                if (cells[a] && cells[a] === cells[b] && cells[a] === cells[c]) {
+                    return cells[a]
+                }
+            }
+
+            if (cells.every((cell) => cell !== null)) {
+                return 'T'
+            }
+            return null
+        }
+
+        function handleClick(event) {
+            const index = event.target.dataset.index;
+            if (!cells[index]) {
+                cells[index] = currentPlayer
+                event.target.textContent = currentPlayer
+                const winner = checkWinner()
+                if (winner) {
+                    if (winner === 'T') {
+                        showPopup('its a tie!')
+                    } else {
+                        showPopup(`${winner} wins`)
+                    }
+                } else {
+                    currentPlayer = currentPlayer === 'X' ? 'O' : 'X'
+                }
+            }
+        }
+
+        function resetBoard() {
+            cells.fill(null)
+            document.querySelectorAll('.cell').forEach((cell) => {
+                cell.textContent = ''
+            })
+            currentPlayer = 'X'
+            hidePopup()
+        }
+
+        function showPopup(message) {
+            popupMessage.textContent = message
+            popup.style.display = 'flex'
+        }
+
+        function hidePopup() {
+            popup.style.display = 'none'
+        }
+
+        playAgainButton.addEventListener('click', () => {
+            resetBoard()
+        })
+
+        for (let i = 0; i < 9; i++) {
+            const cell = document.createElement('div');
+            cell.classList.add('cell');
+            cell.dataset.index = i;
+            cell.addEventListener('click', handleClick)
+            board.appendChild(cell)
+        }
+
+    </script>
+
+</body>
+
+</html>
